@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Slab&family=Source+Serif+Pro&display=swap");
+
+// Variables Fonts
+$RobotoSlab: "Roboto Slab";
+$SourceSerifPro: "Source Serif Pro";
+$Poppins: "Poppins";
+$fontLink: "Poppins", "Roboto Slab", "Source Serif Pro";
+
+// Variables Colors
+$primaryColor100: #ffffff;
+$primaryColor200: #f5f5f5;
+$primaryColor300: #b6b6b6;
+$darkColor900: #000000;
+$secondaryColor: #131966;
+
+// The variables here is also in JS Nav
+$minWidthTablet: 28.5em; // 456px
+$maxWidthTablet: 57.75em; // 924px
+$minWidthDesktop: 57.75em;
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  // height: 100vh;
+  // overflow: hidden;
+  font-family: "Source Serif Pro";
+  transition: all 500ms ease-in-out;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+button,
+a {
+  background: none;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.marian {
+  //   background-color: rgb(216, 216, 216);
+  height: 600px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 8em 24em;
+  overflow: hidden;
+
+  &__heading {
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    h2 {
+      font-size: 1.75em;
+    }
+
+    p {
+      font-size: 0.6em;
+    }
+  }
+
+  &__news {
+    // background-color: rgb(14, 88, 112);
+    width: 100%;
+    transition: all 500ms ease;
+  }
+
+  &__card {
+    --card-width: 15.75em;
+    // --card-width: clamp();
+    // background-color: tomato;
+    outline: 1px solid black;
+    width: var(--card-width);
+    max-width: var(--card-width);
+
+    // padding: 0 1em;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+
+    transition: all 500ms ease;
+  }
+
+  &__img {
+    width: 14em;
+    height: 10em;
+    border-radius: 15px;
+    // box-shadow: 0 0 15px rgba($color: #000, $alpha: 0.2);
+    // box-shadow: var(--neomorp);
+    overflow: hidden;
+  }
+  &__journal {
+    --border-left-right: 20px;
+    --transformY: -3.75em;
+    // background-color: lightblue;
+    // border-top-left-radius: var(--border-left-right);
+    // border-top-right-radius: var(--border-left-right);
+    transform: translateY(var(--transformY));
+    // overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.journal {
+  --neomorp: -3px -3px 5px rgba(255, 255, 255, 0.7),
+    3px 3px 5px rgba(17, 17, 17, 0.2);
+  background-color: white;
+  // background-color: lightcoral;
+  box-shadow: var(--neomorp);
+  width: 11em;
+  height: max-content;
+  border-radius: 10px;
+  overflow: hidden;
+
+  &__heading {
+    // background-color: lightgreen;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 0.6em;
+    & > div:first-child {
+      h3 {
+        font-weight: 900;
+        font-size: 0.75em;
+      }
+
+      p {
+        color: gray;
+        font-size: 0.5em;
+      }
+    }
+
+    & > div:last-child {
+      --img-wh: 2.125em;
+      width: var(--img-wh);
+      height: var(--img-wh);
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+
+  &__tags {
+    // background-color: lightsalmon;
+    height: 1.25em;
+    padding: 0.2em 0.5em;
+    display: flex;
+    align-items: center;
+    // justify-content: space-evenly;
+
+    & > div {
+      outline: 1px solid black;
+      padding: 0.05em 0.7em;
+      border-radius: 10px;
+      font-size: 0.5em;
+    }
+
+    & > div:not(:first-child) {
+      margin: 0 0 0 5px;
+    }
+  }
+
+  &__reaction {
+    height: 1.25em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+
+    & > div:first-child {
+      // background-color: limegreen;
+      width: max-content;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      font-size: 0.6em;
+
+      div:not(:first-child) {
+        margin: 0 0 0 5px;
+      }
+    }
+
+    & > div:last-child {
+      font-size: 0.5em;
+    }
+  }
+}
+
+@media (min-width: $minWidthTablet) and (max-width: $maxWidthTablet) {
+  .marian {
+    font-size: 21px;
+
+    &__card {
+      font-size: clamp(1em, 4vw, 1.15em);
+    }
+  }
+
+  .journal {
+    // font-size: 21px;
+
+    &__heading {
+      & > div:first-child {
+        h3 {
+          font-size: clamp(0.85em, 2vw, 1.25em);
+        }
+
+        p {
+          font-size: 0.6em;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $minWidthDesktop) {
+  .marian {
+    font-size: 22px;
+    height: 800px;
+
+    &__img {
+      width: 15em;
+    }
+
+    &__card {
+      font-size: clamp(1.25em, 4vw, 1.35em);
+      --card-width: 16em;
+    }
+  }
+
+  .journal {
+    // background-color: green;
+    // font-size: 21px;
+    width: 13em;
+
+    &__heading {
+      & > div:first-child {
+        h3 {
+          font-size: clamp(0.85em, 2vw, 0.95em);
+        }
+
+        p {
+          font-size: 0.6em;
+        }
+      }
+    }
+  }
+}
